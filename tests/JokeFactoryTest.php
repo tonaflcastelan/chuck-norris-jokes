@@ -17,10 +17,10 @@ class JokeFactoryTest extends TestCase
         $mock = new MockHandler([
             new Response(200, [], '{ "type": "success", "value": { "id": 456, "joke": "All browsers support the hex definitions #chuck and #norris for the colors black and blue.", "categories": ["nerdy"] } }'),
         ]);
-        
+
         $handlerStack = HandlerStack::create($mock);
         $client = new Client(['handler' => $handlerStack]);
-        
+
         $jokes = new JokeFactory($client);
         $joke = $jokes->getRandomJoke();
 
